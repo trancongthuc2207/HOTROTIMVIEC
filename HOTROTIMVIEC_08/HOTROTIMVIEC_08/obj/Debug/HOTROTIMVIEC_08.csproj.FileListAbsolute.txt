@@ -1,0 +1,10 @@
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\bin\Debug\HOTROTIMVIEC_08.exe.config
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\bin\Debug\HOTROTIMVIEC_08.exe
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\bin\Debug\HOTROTIMVIEC_08.pdb
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\obj\Debug\HOTROTIMVIEC_08.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\obj\Debug\HOTROTIMVIEC_08.LOGIN.resources
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\obj\Debug\HOTROTIMVIEC_08.Properties.Resources.resources
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\obj\Debug\HOTROTIMVIEC_08.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\obj\Debug\HOTROTIMVIEC_08.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\obj\Debug\HOTROTIMVIEC_08.exe
+C:\Users\Admin\Documents\trancongthuc\HOTROTIMVIEC_08\HOTROTIMVIEC_08\obj\Debug\HOTROTIMVIEC_08.pdb

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HOTROTIMVIEC" Class="HTTVDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=THUC\SQL;Initial Catalog=HOTROTIMVIEC;Integrated Security=True" SettingsObjectName="HOTROTIMVIEC_08.Properties.Settings" SettingsPropertyName="HOTROTIMVIECConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ADMINISTRATION" Member="ADMINISTRATIONs">
+    <Type Name="ADMINISTRATION">
+      <Column Name="MaAdmin" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="Taikhoan" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Matkhau" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Vitri" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="QUYENHAN_ADMINISTRATION" Member="QUYENHAN" ThisKey="Vitri" OtherKey="MaQ" Type="QUYENHAN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VIECLAM" Member="VIECLAMs">
+    <Type Name="VIECLAM">
+      <Column Name="MaViec" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenViec" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MucLuong" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="VIECLAM_DONVITUYENDUNG_VIECLAM" Member="DONVITUYENDUNG_VIECLAMs" ThisKey="MaViec" OtherKey="MaViec" Type="DONVITUYENDUNG_VIECLAM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DON_TUYENDUNG" Member="DON_TUYENDUNGs">
+    <Type Name="DON_TUYENDUNG">
+      <Column Name="MaNLD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayDK" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="DONVITUYENDUNG_VIECLAM_DON_TUYENDUNG" Member="DONVITUYENDUNG_VIECLAM" ThisKey="Id" OtherKey="Id" Type="DONVITUYENDUNG_VIECLAM" IsForeignKey="true" />
+      <Association Name="NGUOILAODONG_DON_TUYENDUNG" Member="NGUOILAODONG" ThisKey="MaNLD" OtherKey="MaNLD" Type="NGUOILAODONG" IsForeignKey="true" />
+      <Association Name="NGUOILAODONG_DON_TUYENDUNG1" Member="NGUOILAODONG1" ThisKey="MaNLD" OtherKey="MaNLD" Type="NGUOILAODONG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONVITUYENDUNG" Member="DONVITUYENDUNGs">
+    <Type Name="DONVITUYENDUNG">
+      <Column Name="MaDV" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="QuyMo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TrangThai" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="DONVITUYENDUNG_DONVITUYENDUNG_TAIKHOAN" Member="DONVITUYENDUNG_TAIKHOANs" ThisKey="MaDV" OtherKey="MaDV_TaiKhoan" Type="DONVITUYENDUNG_TAIKHOAN" />
+      <Association Name="DONVITUYENDUNG_DONVITUYENDUNG_VIECLAM" Member="DONVITUYENDUNG_VIECLAMs" ThisKey="MaDV" OtherKey="MaDV" Type="DONVITUYENDUNG_VIECLAM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONVITUYENDUNG_TAIKHOAN" Member="DONVITUYENDUNG_TAIKHOANs">
+    <Type Name="DONVITUYENDUNG_TAIKHOAN">
+      <Column Name="MaDV_TaiKhoan" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Matkhau" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Vitri" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="DONVITUYENDUNG_DONVITUYENDUNG_TAIKHOAN" Member="DONVITUYENDUNG" ThisKey="MaDV_TaiKhoan" OtherKey="MaDV" Type="DONVITUYENDUNG" IsForeignKey="true" />
+      <Association Name="QUYENHAN_DONVITUYENDUNG_TAIKHOAN" Member="QUYENHAN" ThisKey="Vitri" OtherKey="MaQ" Type="QUYENHAN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONVITUYENDUNG_VIECLAM" Member="DONVITUYENDUNG_VIECLAMs">
+    <Type Name="DONVITUYENDUNG_VIECLAM">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDV" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaViec" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuyMo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TGBatDau" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TGKetThuc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DONVITUYENDUNG_VIECLAM_DON_TUYENDUNG" Member="DON_TUYENDUNGs" ThisKey="Id" OtherKey="Id" Type="DON_TUYENDUNG" />
+      <Association Name="DONVITUYENDUNG_DONVITUYENDUNG_VIECLAM" Member="DONVITUYENDUNG" ThisKey="MaDV" OtherKey="MaDV" Type="DONVITUYENDUNG" IsForeignKey="true" />
+      <Association Name="VIECLAM_DONVITUYENDUNG_VIECLAM" Member="VIECLAM" ThisKey="MaViec" OtherKey="MaViec" Type="VIECLAM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NGUOILAODONG" Member="NGUOILAODONGs">
+    <Type Name="NGUOILAODONG">
+      <Column Name="MaNLD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BangCap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="NGUOILAODONG_DON_TUYENDUNG" Member="DON_TUYENDUNGs" ThisKey="MaNLD" OtherKey="MaNLD" Type="DON_TUYENDUNG" />
+      <Association Name="NGUOILAODONG_DON_TUYENDUNG1" Member="DON_TUYENDUNGs1" ThisKey="MaNLD" OtherKey="MaNLD" Type="DON_TUYENDUNG" />
+      <Association Name="NGUOILAODONG_NGUOILAODONG_TAIKHOAN" Member="NGUOILAODONG_TAIKHOANs" ThisKey="MaNLD" OtherKey="MaNLD" Type="NGUOILAODONG_TAIKHOAN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NGUOILAODONG_TAIKHOAN" Member="NGUOILAODONG_TAIKHOANs">
+    <Type Name="NGUOILAODONG_TAIKHOAN">
+      <Column Name="MaNLD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Taikhoan" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Matkhau" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Vitri" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NGUOILAODONG_NGUOILAODONG_TAIKHOAN" Member="NGUOILAODONG" ThisKey="MaNLD" OtherKey="MaNLD" Type="NGUOILAODONG" IsForeignKey="true" />
+      <Association Name="QUYENHAN_NGUOILAODONG_TAIKHOAN" Member="QUYENHAN" ThisKey="Vitri" OtherKey="MaQ" Type="QUYENHAN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QUYENHAN" Member="QUYENHANs">
+    <Type Name="QUYENHAN">
+      <Column Name="MaQ" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenQ" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Mota" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="QUYENHAN_ADMINISTRATION" Member="ADMINISTRATIONs" ThisKey="MaQ" OtherKey="Vitri" Type="ADMINISTRATION" />
+      <Association Name="QUYENHAN_DONVITUYENDUNG_TAIKHOAN" Member="DONVITUYENDUNG_TAIKHOANs" ThisKey="MaQ" OtherKey="Vitri" Type="DONVITUYENDUNG_TAIKHOAN" />
+      <Association Name="QUYENHAN_NGUOILAODONG_TAIKHOAN" Member="NGUOILAODONG_TAIKHOANs" ThisKey="MaQ" OtherKey="Vitri" Type="NGUOILAODONG_TAIKHOAN" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SV_CheckDN" Method="SV_CheckDN">
+    <Parameter Name="Taikhoan" Parameter="taikhoan" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Matkhau" Parameter="matkhau" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="checkDN" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
