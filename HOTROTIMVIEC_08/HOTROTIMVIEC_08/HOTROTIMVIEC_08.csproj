@@ -47,20 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BUS_ADMINISTRATION.cs" />
+    <Compile Include="BUS\BUS_DONVITUYENDUNG.cs" />
+    <Compile Include="BUS\BUS_DONVITUYENDUNG_TAIKHOAN.cs" />
+    <Compile Include="BUS\BUS_NGUOILAODONG.cs" />
+    <Compile Include="BUS\BUS_NGUOILAODONG_TAIKHOAN.cs" />
     <Compile Include="BUS\BUS_SERVICES.cs" />
+    <Compile Include="DAO\DAO_ADMINISTRATION.cs" />
+    <Compile Include="DAO\DAO_DONVITUYENDUNG.cs" />
     <Compile Include="DAO\DAO_DONVITUYENDUNG_TAIKHOAN.cs" />
+    <Compile Include="DAO\DAO_NGUOILAODONG.cs" />
+    <Compile Include="DAO\DAO_NGUOILAODONG_TAIKHOAN.cs" />
     <Compile Include="DAO\DAO_SERVICES.cs" />
-    <Compile Include="GUI\ADMINISTRATION\MENU_ADMINISTRATION.cs">
+    <Compile Include="GUI\_ADMINISTRATION\MENU_ADMINISTRATION.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ADMINISTRATION\MENU_ADMINISTRATION.Designer.cs">
+    <Compile Include="GUI\_ADMINISTRATION\MENU_ADMINISTRATION.Designer.cs">
       <DependentUpon>MENU_ADMINISTRATION.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\DONVITUYENDUNG\MENU_DONVITUYENDUNG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\DONVITUYENDUNG\MENU_DONVITUYENDUNG.Designer.cs">
-      <DependentUpon>MENU_DONVITUYENDUNG.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\LOGIN\LOGIN.cs">
       <SubType>Form</SubType>
@@ -74,11 +77,35 @@
     <Compile Include="GUI\LOGIN\SELECT_DANGKY.Designer.cs">
       <DependentUpon>SELECT_DANGKY.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\NGUOILAODONG\MENU_NGUOILAODONG.cs">
+    <Compile Include="GUI\_DONVITUYENDUNG\MENU_DONVITUYENDUNG.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\NGUOILAODONG\MENU_NGUOILAODONG.Designer.cs">
+    <Compile Include="GUI\_DONVITUYENDUNG\MENU_DONVITUYENDUNG.Designer.cs">
+      <DependentUpon>MENU_DONVITUYENDUNG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\MENU_NGUOILAODONG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\MENU_NGUOILAODONG.Designer.cs">
       <DependentUpon>MENU_NGUOILAODONG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\UC_DoiMatKhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\UC_DoiMatKhau.Designer.cs">
+      <DependentUpon>UC_DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\UC_ThongTinNLD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\UC_ThongTinNLD.Designer.cs">
+      <DependentUpon>UC_ThongTinNLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\UC_TrangChu_NLD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\_NGUOILAODONG\UC_TrangChu_NLD.Designer.cs">
+      <DependentUpon>UC_TrangChu_NLD.cs</DependentUpon>
     </Compile>
     <Compile Include="HTTV.designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,6 +116,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\LOGIN\LOGIN.resx">
       <DependentUpon>LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\_ADMINISTRATION\MENU_ADMINISTRATION.resx">
+      <DependentUpon>MENU_ADMINISTRATION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\_DONVITUYENDUNG\MENU_DONVITUYENDUNG.resx">
+      <DependentUpon>MENU_DONVITUYENDUNG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\_NGUOILAODONG\MENU_NGUOILAODONG.resx">
+      <DependentUpon>MENU_NGUOILAODONG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\_NGUOILAODONG\UC_DoiMatKhau.resx">
+      <DependentUpon>UC_DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\_NGUOILAODONG\UC_ThongTinNLD.resx">
+      <DependentUpon>UC_ThongTinNLD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

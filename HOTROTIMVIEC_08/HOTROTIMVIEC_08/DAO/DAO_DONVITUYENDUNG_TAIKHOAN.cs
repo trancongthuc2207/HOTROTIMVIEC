@@ -13,5 +13,10 @@ namespace HOTROTIMVIEC_08.DAO
         {
             conn = new HTTVDataContext();
         }
+        public DONVITUYENDUNG_TAIKHOAN getTaiKhoanByTK_MK(string tk, string mk)
+        {
+            DONVITUYENDUNG_TAIKHOAN tk_nld = conn.DONVITUYENDUNG_TAIKHOANs.FirstOrDefault(a => a.MaDV_TaiKhoan == tk && a.Matkhau == mk);
+            return tk_nld;
+        }
     }
 }

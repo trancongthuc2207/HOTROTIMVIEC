@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HOTROTIMVIEC_08.BUS;
 using HOTROTIMVIEC_08.GUI;
-using HOTROTIMVIEC_08.GUI.ADMINISTRATION;
-using HOTROTIMVIEC_08.GUI.DONVITUYENDUNG;
-using HOTROTIMVIEC_08.GUI.NGUOILAODONG;
+using HOTROTIMVIEC_08.GUI._NGUOILAODONG;
+using HOTROTIMVIEC_08.GUI._ADMINISTRATION;
+using HOTROTIMVIEC_08.GUI._DONVITUYENDUNG;
 
 namespace HOTROTIMVIEC_08
 {
     public partial class LOGIN : Form
     {
         BUS_SERVICES bUS_SERVICES;
+        BUS_NGUOILAODONG_TAIKHOAN bUS_NGUOILAODONG_TAIKHOAN;
+        BUS_DONVITUYENDUNG_TAIKHOAN bUS_DONVITUYENDUNG_TAIKHOAN;
+        BUS_ADMINISTRATION bUS_ADMINISTRATION;
+        private static NGUOILAODONG_TAIKHOAN nld_TK;
+        private static ADMINISTRATION admin_TK;
+        private static DONVITUYENDUNG_TAIKHOAN dvtd_TK;
         public LOGIN()
         {
             InitializeComponent();
@@ -27,6 +33,9 @@ namespace HOTROTIMVIEC_08
             txtMK.MaxLength = 25;
             txtTK.MaxLength = 25;
             bUS_SERVICES = new BUS_SERVICES();
+            bUS_NGUOILAODONG_TAIKHOAN = new BUS_NGUOILAODONG_TAIKHOAN();
+            bUS_DONVITUYENDUNG_TAIKHOAN = new BUS_DONVITUYENDUNG_TAIKHOAN();
+            bUS_ADMINISTRATION = new BUS_ADMINISTRATION();
         }
 
         private void btnDK_Click(object sender, EventArgs e)
@@ -58,6 +67,7 @@ namespace HOTROTIMVIEC_08
                 if (check == 1)
                 {
                     this.Hide();
+                    dvtd_TK = bUS_DONVITUYENDUNG_TAIKHOAN.getTaiKhoanByTK_MK(txtTK.Text,txtMK.Text);
                     MessageBox.Show("Chào mừng bạn đăng nhập với tư cách là: ĐƠN VỊ TUYỂN DỤNG!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MENU_DONVITUYENDUNG dvtd = new MENU_DONVITUYENDUNG();
                     dvtd.ShowDialog();
@@ -71,6 +81,7 @@ namespace HOTROTIMVIEC_08
                 if (check == 2)
                 {
                     this.Hide();
+                    nld_TK = bUS_NGUOILAODONG_TAIKHOAN.getTaiKhoanByTK_MK(txtTK.Text, txtMK.Text);
                     MessageBox.Show("Chào mừng bạn đăng nhập với tư cách là: NGƯỜI LAO ĐỘNG!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MENU_NGUOILAODONG nld = new MENU_NGUOILAODONG();
                     nld.ShowDialog();
@@ -84,6 +95,7 @@ namespace HOTROTIMVIEC_08
                 if (check == 3)
                 {
                     this.Hide();
+                    admin_TK = bUS_ADMINISTRATION.getAdminFromTK_MK(txtTK.Text, txtMK.Text);
                     MessageBox.Show("Chào mừng bạn đăng nhập với tư cách là: ADMINISTRATION!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MENU_ADMINISTRATION admin = new MENU_ADMINISTRATION();
                     admin.ShowDialog();
@@ -96,6 +108,19 @@ namespace HOTROTIMVIEC_08
                 MessageBox.Show("Mời bạn chọn quyền!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
-        
+
+        public static NGUOILAODONG_TAIKHOAN nld_Cur_TK()
+        {
+            return nld_TK;
+        }
+        public static DONVITUYENDUNG_TAIKHOAN dvtd_Cur_TK()
+        {
+            return dvtd_TK;
+        }
+        public static ADMINISTRATION admin_Cur_TK()
+        {
+            return admin_TK;
+        }
+
     }
 }

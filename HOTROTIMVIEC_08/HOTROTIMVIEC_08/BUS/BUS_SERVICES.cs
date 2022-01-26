@@ -19,7 +19,6 @@ namespace HOTROTIMVIEC_08.BUS
             int? check = dAO_SERVICES.checkDN(tk, mk);
             return check;
         }
-
         
     }
 }
